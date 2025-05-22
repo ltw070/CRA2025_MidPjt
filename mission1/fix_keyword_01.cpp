@@ -139,17 +139,17 @@ string updateKeywordBy(string keyword, string day) {
 		}
 	}
 
-	for (Node2& node : twoBest[day_index]) {
+	for (Node2& node : twoBest[weekend_index]) {
 		if (similer(node.name, keyword)) {
 			return node.name;
 		}
 	}
 
 	//¿Ïº® HIT / Âû¶± HIT µÑ´Ù ¾Æ´Ñ°æ¿ì
-	auto &dayNode = DayBest[day_index];
+	auto& dayNode = DayBest[day_index];
 	addKeyword(dayNode, keyword, point);
 
-	auto& twoNode = twoBest[day_index];
+	auto& twoNode = twoBest[weekend_index];
 	addKeyword(twoNode, keyword, point);
 
 	return keyword;
