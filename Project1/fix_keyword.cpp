@@ -212,10 +212,15 @@ void findBetterKeywords() {
 	}
 }
 
+
+
+
+
 int main() {
 
 	findBetterKeywords();
-
+	//::testing::InitGoogleMock();
+	//return RUN_ALL_TESTS();
 }
 
 // ¸ðµâÈ­
