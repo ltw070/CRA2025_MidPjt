@@ -1,17 +1,17 @@
 //#include "gmock/gmock.h"
 //#include "fix_keyword.cpp"
-//
+////
 //int main() {
+//
+//#ifdef _DEBUG
+//
 //	::testing::InitGoogleMock();
 //	return RUN_ALL_TESTS();
 //
-////#ifdef _DEBUG
-////
-////
-////#else
-////
-////	input();
-////
-////#endif
+//#else
+//
+//	input();
+//
+//#endif
 //
 //}

@@ -7,20 +7,11 @@
       "RelativeMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|solutionrelative:Project1\\fix_keyword.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xstring||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|C:\\Users\\User\\source\\repos\\Project1\\Project1\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|solutionrelative:Project1\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|C:\\Users\\User\\source\\repos\\Project1\\Project1\\cal_test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|solutionrelative:Project1\\cal_test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|C:\\Users\\User\\source\\repos\\Project1\\Project1\\cal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|solutionrelative:Project1\\cal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|C:\\Users\\User\\source\\repos\\Project1\\Project1\\keyword_weekday_500.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|solutionrelative:Project1\\keyword_weekday_500.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,29 +29,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "cal.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\cal.cpp",
-              "RelativeDocumentMoniker": "Project1\\cal.cpp",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\cal.cpp",
-              "RelativeToolTip": "Project1\\cal.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-22T01:20:04.934Z",
+              "DocumentIndex": 1,
+              "Title": "xstring",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xstring",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xstring",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xstring",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xstring",
+              "ViewState": "AgIAAKoJAAAAAAAAAAAmwL8JAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-22T06:53:39.533Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\main.cpp",
               "RelativeDocumentMoniker": "Project1\\main.cpp",
               "ToolTip": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\main.cpp",
               "RelativeToolTip": "Project1\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-22T01:17:48.885Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T04:15:43.82Z"
             },
             {
               "$type": "Document",
@@ -70,35 +60,10 @@
               "RelativeDocumentMoniker": "Project1\\fix_keyword.cpp",
               "ToolTip": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\fix_keyword.cpp",
               "RelativeToolTip": "Project1\\fix_keyword.cpp",
-              "ViewState": "AgIAAK8AAAAAAAAAAAAAAMIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAawJcAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-22T01:14:55.893Z",
+              "WhenOpened": "2025-05-22T04:00:11.735Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "cal_test.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\cal_test.cpp",
-              "RelativeDocumentMoniker": "Project1\\cal_test.cpp",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\cal_test.cpp",
-              "RelativeToolTip": "Project1\\cal_test.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-22T01:21:52.114Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "keyword_weekday_500.txt",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\keyword_weekday_500.txt",
-              "RelativeDocumentMoniker": "Project1\\keyword_weekday_500.txt",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\keyword_weekday_500.txt",
-              "RelativeToolTip": "Project1\\keyword_weekday_500.txt",
-              "ViewState": "AgIAALgBAAAAAAAAAAAmwNIBAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-05-22T01:15:50.946Z"
             }
           ]
         }
