@@ -202,6 +202,7 @@ void addKeyword(std::vector<Node2>& node, std::string& keyword, int point)
 	}
 }
 
+
 void findBetterKeywords() {
 	ifstream fin{ "keyword_weekday_500.txt" }; //500개 데이터 입력
 	for (int i = 0; i < 500; i++) {
@@ -210,6 +211,20 @@ void findBetterKeywords() {
 		string ret = updateKeywordBy(keyword, day);
 		std::cout << ret << "\n";
 	}
+}
+
+
+// test ///////////////
+
+TEST(KeywordTest, PerfectHit) {
+	resetScore();
+	string keyword = "banana";
+	string day = "tuesday";
+	updateKeywordBy(keyword, day); // 최초 추가
+	int prevPoint = DayBest[1][0].point;
+	string result = updateKeywordBy(keyword, day); // 완벽 HIT
+	EXPECT_EQ(result, keyword);
+	EXPECT_GT(DayBest[1][0].point, prevPoint); // 점수 증가 확인
 }
 
 
@@ -225,6 +240,31 @@ TEST(KeywordTest, BasicAssertions) {
 	EXPECT_EQ(result, keyword); // 처음 추가된 키워드가 반환되어야 함
 	EXPECT_EQ(DayBest[0][0].name, keyword); // 월요일에 추가된 키워드 확인
 	EXPECT_EQ(DayBest[0][0].point, UZ); // 점수 확인
+}
+
+
+TEST(KeywordTest, ScoreReset) {
+	resetScore();
+	// UZ와 point를 임계값 이상으로 강제 설정
+	UZ = 2100000000;
+	DayBest[0].push_back({ "reset_test", 2100000000 });
+	twoBest[0].push_back({ "reset_test2", 2100000000 });
+	// 점수 리셋 트리거
+	updateKeywordBy("zzz", "monday");
+	// 점수 리셋 후 UZ가 9로 초기화되어야 함
+	EXPECT_EQ(UZ, 9);
+	// DayBest, twoBest의 point가 1부터 재할당되어야 함
+	EXPECT_EQ(DayBest[0][0].point, 1);
+	EXPECT_EQ(twoBest[0][0].point, 1);
+}
+
+TEST(KeywordTest, EmptyKeyword) {
+	resetScore();
+	string keyword = "";
+	string day = "sunday";
+	string result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+	EXPECT_EQ(DayBest[6][0].name, keyword);
 }
 
 int main() {
