@@ -48,6 +48,9 @@ int levenshtein(const std::string& a, const std::string& b) {
 	return d[len_a][len_b];
 }
 
+// 문자열 유사도 계산 함수 포인터 타입 정의
+using SimilarityFunc = int(*)(const std::string&, const std::string&);
+
 // 점수 계산
 int calcSimiler(const std::string& string1, const std::string& string2)
 {
@@ -64,11 +67,19 @@ int calcSimiler(const std::string& string1, const std::string& string2)
 	return score;
 }
 
+// 추상화된 함수 포인터 선언 및 초기화
+SimilarityFunc similarityFunc = calcSimiler;
+
 // 점수 환산
 bool similer(const std::string& string1, const std::string& string2) {
-	int score = calcSimiler(string1, string2);
+	int score = similarityFunc(string1, string2);
 	return (score >= 80);
 }
+
+//bool similer(const std::string& string1, const std::string& string2) {
+//	int score = calcSimiler(string1, string2);
+//	return (score >= 80);
+//}
 
 // 요일 -> 인덱스 맵핑
 map<string, int> dayToIndex = {
