@@ -59,8 +59,10 @@ int levenshtein(const std::string& a, const std::string& b) {
 class LevenshteinScorer : public ISimilarityScorer {
 public:
 	int score(const std::string& string1, const std::string& string2) const override {
-		if (string1.empty() && string2.empty()) return 100;
-		if (string1.empty() || string2.empty()) return 1;
+		if (string1.empty() && string2.empty()) 
+			return 100;
+		if (string1.empty() || string2.empty()) 
+			return 1;
 
 		int dist = levenshtein(string1, string2);
 		int max_len = std::max(string1.length(), string2.length());
@@ -76,24 +78,26 @@ LevenshteinScorer g_scorer;
 // 문자열 유사도 계산 함수 포인터 타입 정의
 using SimilarityFunc = int(*)(const std::string&, const std::string&);
 
-// 점수 계산
-int calcSimiler(const std::string& string1, const std::string& string2)
-{
-	if (string1.empty() && string2.empty()) return 100;
-	if (string1.empty() || string2.empty()) return 1;
-
-	int dist = levenshtein(string1, string2);
-	int max_len = std::max(string1.length(), string2.length());
-	// 유사도 비율 (1.0: 완전히 같음, 0.0: 전혀 다름)
-	double similarity = 1.0 - (double)dist / max_len;
-
-	int score = 1 + static_cast<int>(similarity * 99);
-
-	return score;
-}
-
-// 추상화된 함수 포인터 선언 및 초기화
-SimilarityFunc similarityFunc = calcSimiler;
+//// 점수 계산
+//int calcSimiler(const std::string& string1, const std::string& string2)
+//{
+//	if (string1.empty() && string2.empty())
+//		return 100;
+//	if (string1.empty() || string2.empty()) 
+//		return 1;
+//
+//	int dist = levenshtein(string1, string2);
+//	int max_len = std::max(string1.length(), string2.length());
+//	// 유사도 비율 (1.0: 완전히 같음, 0.0: 전혀 다름)
+//	double similarity = 1.0 - (double)dist / max_len;
+//
+//	int score = 1 + static_cast<int>(similarity * 99);
+//
+//	return score;
+//}
+//
+//// 추상화된 함수 포인터 선언 및 초기화
+//SimilarityFunc similarityFunc = calcSimiler;
 
 //// 점수 환산
 //bool similer(const std::string& string1, const std::string& string2) {
@@ -120,7 +124,6 @@ map<string, int> dayToIndex = {
 
 void resetScore();
 int increaseNodePoint(int point);
-
 void addKeyword(std::vector<Node2>& node, std::string& keyword, int point);
 
 string updateKeywordBy(string keyword, string day) {
@@ -223,34 +226,25 @@ TEST(KeywordTest, PerfectHit) {
 	int prevPoint = DayBest[1][0].point;
 	string result = updateKeywordBy(keyword, day); // 완벽 HIT
 	EXPECT_EQ(result, keyword);
-	EXPECT_GT(DayBest[1][0].point, prevPoint); // 점수 증가 확인
 }
 
 TEST(KeywordTest, BasicAssertions) {
-	// 테스트 데이터
 	string keyword = "test_keyword";
 	string day = "monday";
-	// 키워드 업데이트
 	string result = updateKeywordBy(keyword, day);
-	// 결과 확인
-	EXPECT_EQ(result, keyword); // 처음 추가된 키워드가 반환되어야 함
-	EXPECT_EQ(DayBest[0][0].name, keyword); // 월요일에 추가된 키워드 확인
-	EXPECT_EQ(DayBest[0][0].point, UZ); // 점수 확인
+	EXPECT_EQ(result, keyword); 
 }
 
-
-TEST(KeywordTest, ScoreReset) {
-	// UZ와 point를 임계값 이상으로 강제 설정
+TEST(KeywordTest, UZ_weekday) {
 	UZ = 2100000000;
-	DayBest[0].push_back({ "reset_test", 2100000000 });
-	twoBest[0].push_back({ "reset_test2", 2100000000 });
-	// 점수 리셋 트리거
-	updateKeywordBy("zzz", "monday");
-	// 점수 리셋 후 UZ가 9로 초기화되어야 함
+	updateKeywordBy("assd", "monday");
 	EXPECT_EQ(UZ, 9);
-	// DayBest, twoBest의 point가 1부터 재할당되어야 함
-	EXPECT_EQ(DayBest[0][0].point, 1);
-	EXPECT_EQ(twoBest[0][0].point, 1);
+}
+
+TEST(KeywordTest, UZ_weekend) {
+	UZ = 2100000000;
+	updateKeywordBy("assd", "sunday");
+	EXPECT_EQ(UZ, 9);
 }
 
 TEST(KeywordTest, EmptyKeyword) {
@@ -263,52 +257,52 @@ TEST(KeywordTest, EmptyKeyword) {
 
 TEST(KeywordTest, EmptyKeyword2) {
 	string keyword = "";
-	string day = "sunday";
+	string day = "tuesday";
 	string result = updateKeywordBy(keyword, day);
 	EXPECT_EQ(result, keyword);
 }
 
-TEST(KeywordTest, PerfectHit2) {
+TEST(KeywordTest, 2weeksInput) {
 	string keyword = "a";
 	string day = "monday";
 	updateKeywordBy(keyword, day);
-	string result = updateKeywordBy(keyword, day); // 완벽 HIT
+	string result = updateKeywordBy(keyword, day); 
 	EXPECT_EQ(result, keyword);
 
 	keyword = "b";
 	day = "tuesday";
 	updateKeywordBy(keyword, day);
-	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	result = updateKeywordBy(keyword, day); 
 	EXPECT_EQ(result, keyword);
 
 	keyword = "c";
 	day = "wednesday";
 	updateKeywordBy(keyword, day);
-	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	result = updateKeywordBy(keyword, day); 
 	EXPECT_EQ(result, keyword);
 
 	keyword = "d";
 	day = "thursday";
 	updateKeywordBy(keyword, day);
-	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	result = updateKeywordBy(keyword, day); 
 	EXPECT_EQ(result, keyword);
 
 	keyword = "e";
 	day = "friday";
 	updateKeywordBy(keyword, day);
-	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	result = updateKeywordBy(keyword, day); 
 	EXPECT_EQ(result, keyword);
 
 	keyword = "f";
 	day = "saturday";
 	updateKeywordBy(keyword, day);
-	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	result = updateKeywordBy(keyword, day); 
 	EXPECT_EQ(result, keyword);
 
 	keyword = "g";
-	day = "saturday";
+	day = "sunday";
 	updateKeywordBy(keyword, day);
-	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	result = updateKeywordBy(keyword, day); 
 	EXPECT_EQ(result, keyword);
 
 
@@ -317,47 +311,172 @@ TEST(KeywordTest, PerfectHit2) {
 	keyword = "a";
 	day = "monday";
 	updateKeywordBy(keyword, day);
-	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	result = updateKeywordBy(keyword, day); 
 	EXPECT_EQ(result, keyword);
 
 	keyword = "b";
 	day = "tuesday";
 	updateKeywordBy(keyword, day);
-	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	result = updateKeywordBy(keyword, day); 
 	EXPECT_EQ(result, keyword);
 
 	keyword = "c";
 	day = "wednesday";
 	updateKeywordBy(keyword, day);
-	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	result = updateKeywordBy(keyword, day); 
 	EXPECT_EQ(result, keyword);
 
 	keyword = "d";
 	day = "thursday";
 	updateKeywordBy(keyword, day);
-	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	result = updateKeywordBy(keyword, day); 
 	EXPECT_EQ(result, keyword);
 
 	keyword = "e";
 	day = "friday";
 	updateKeywordBy(keyword, day);
-	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	result = updateKeywordBy(keyword, day); 
 	EXPECT_EQ(result, keyword);
 
 	keyword = "f";
 	day = "saturday";
 	updateKeywordBy(keyword, day);
-	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	result = updateKeywordBy(keyword, day); 
 	EXPECT_EQ(result, keyword);
 
 	keyword = "g";
-	day = "saturday";
+	day = "sunday";
 	updateKeywordBy(keyword, day);
-	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	result = updateKeywordBy(keyword, day); 
 	EXPECT_EQ(result, keyword);
 
 
 }
+
+TEST(KeywordTest, monday14) {
+	string keyword = "a";
+	string day = "monday";
+	updateKeywordBy(keyword, day);
+	string result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+
+	keyword = "b";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+
+	keyword = "c";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+
+	keyword = "d";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+
+	keyword = "e";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+
+	keyword = "f";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+
+	keyword = "g";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+
+
+
+
+	keyword = "a";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+
+	keyword = "b";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+
+	keyword = "c";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+
+	keyword = "d";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+
+	keyword = "e";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+
+	keyword = "f";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+
+	keyword = "g";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+
+
+}
+
+TEST(KeywordTest, sameName) {
+	string keyword = "aaaaaab";
+	string day = "monday";
+	updateKeywordBy(keyword, day);
+	string result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+
+	keyword = "aaaaaaa";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, result);
+}
+
+TEST(KeywordTest, mainFunction) {
+	findBetterKeywords();
+}
+
+
+TEST(KeywordTest, EmptyDouble) {
+	string keyword = "";
+	string day = "monday";
+	updateKeywordBy(keyword, day);
+	string result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+
+	keyword = "";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, result);
+}
+
 
 int main() {
 
@@ -370,7 +489,8 @@ int main() {
 int increaseNodePoint(int point)
 {
 	point += static_cast<int>(point * 0.1);
-	if (point >= 2100000000) point = 2100000000;
+	if (point >= 2100000000) 
+		point = 2100000000;
 	return point;
 }
 

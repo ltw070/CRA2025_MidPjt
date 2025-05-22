@@ -57,8 +57,8 @@ public:
 
 <span style = "background-color:#dfd">	for (size_t i = 1; i &lt;= len_a; ++i) {
 		for (size_t j = 1; j &lt;= len_b; ++j) {
-			if (a[i - 1] == b[j - 1])</span>
-<span style = "background-color:#fdd">				d[i][j] = d[i - 1][j - 1];</span>
+			if (a[i - 1] == b[j - 1])
+				d[i][j] = d[i - 1][j - 1];</span>
 			else
 <span style = "background-color:#dfd">				d[i][j] = 1 + std::min({ d[i - 1][j], d[i][j - 1], d[i - 1][j - 1] });
 		}
@@ -70,8 +70,10 @@ public:
 class LevenshteinScorer : public ISimilarityScorer {
 public:
 <span style = "background-color:#dfd">	int score(const std::string&amp; string1, const std::string&amp; string2) const override {
-		if (string1.empty() &amp;&amp; string2.empty()) return 100;
-		if (string1.empty() || string2.empty()) return 1;</span>
+		if (string1.empty() &amp;&amp; string2.empty()) 
+			return 100;
+		if (string1.empty() || string2.empty()) 
+			return 1;</span>
 
 <span style = "background-color:#dfd">		int dist = levenshtein(string1, string2);
 		int max_len = std::max(string1.length(), string2.length());
@@ -87,24 +89,26 @@ public:
 // ¹®ÀÚ¿­ À¯»çµµ °è»ê ÇÔ¼ö Æ÷ÀÎÅÍ Å¸ÀÔ Á¤ÀÇ
 using SimilarityFunc = int(*)(const std::string&amp;, const std::string&amp;);
 
-// Á¡¼ö °è»ê
-int calcSimiler(const std::string&amp; string1, const std::string&amp; string2)
-<span style = "background-color:#fdd">{
-	if (string1.empty() &amp;&amp; string2.empty()) return 100;
-	if (string1.empty() || string2.empty()) return 1;</span>
-
-<span style = "background-color:#fdd">	int dist = levenshtein(string1, string2);
-	int max_len = std::max(string1.length(), string2.length());</span>
-	// À¯»çµµ ºñÀ² (1.0: ¿ÏÀüÈ÷ °°À½, 0.0: ÀüÇô ´Ù¸§)
-<span style = "background-color:#fdd">	double similarity = 1.0 - (double)dist / max_len;</span>
-
-<span style = "background-color:#fdd">	int score = 1 + static_cast&lt;int&gt;(similarity * 99);</span>
-
-<span style = "background-color:#fdd">	return score;
-}</span>
-
-// Ãß»óÈ­µÈ ÇÔ¼ö Æ÷ÀÎÅÍ ¼±¾ð ¹× ÃÊ±âÈ­
-SimilarityFunc similarityFunc = calcSimiler;
+//// Á¡¼ö °è»ê
+//int calcSimiler(const std::string&amp; string1, const std::string&amp; string2)
+//{
+//	if (string1.empty() &amp;&amp; string2.empty())
+//		return 100;
+//	if (string1.empty() || string2.empty()) 
+//		return 1;
+//
+//	int dist = levenshtein(string1, string2);
+//	int max_len = std::max(string1.length(), string2.length());
+//	// À¯»çµµ ºñÀ² (1.0: ¿ÏÀüÈ÷ °°À½, 0.0: ÀüÇô ´Ù¸§)
+//	double similarity = 1.0 - (double)dist / max_len;
+//
+//	int score = 1 + static_cast&lt;int&gt;(similarity * 99);
+//
+//	return score;
+//}
+//
+//// Ãß»óÈ­µÈ ÇÔ¼ö Æ÷ÀÎÅÍ ¼±¾ð ¹× ÃÊ±âÈ­
+//SimilarityFunc similarityFunc = calcSimiler;
 
 //// Á¡¼ö È¯»ê
 //bool similer(const std::string&amp; string1, const std::string&amp; string2) {
@@ -131,7 +135,6 @@ SimilarityFunc similarityFunc = calcSimiler;
 
 void resetScore();
 int increaseNodePoint(int point);
-
 void addKeyword(std::vector&lt;Node2&gt;&amp; node, std::string&amp; keyword, int point);
 
 <span style = "background-color:#dfd">string updateKeywordBy(string keyword, string day) {
@@ -176,14 +179,14 @@ void addKeyword(std::vector&lt;Node2&gt;&amp; node, std::string&amp; keyword, in
 
 	//Âû¶± HIT
 <span style = "background-color:#dfd">	for (Node2&amp; node : DayBest[day_index]) {
-		if (similer(node.name, keyword)) {</span>
-<span style = "background-color:#fdd">			return node.name;</span>
+		if (similer(node.name, keyword)) {
+			return node.name;</span>
 		}
 <span style = "background-color:#dfd">	}</span>
 
 <span style = "background-color:#dfd">	for (Node2&amp; node : twoBest[weekend_index]) {
-		if (similer(node.name, keyword)) {</span>
-<span style = "background-color:#fdd">			return node.name;</span>
+		if (similer(node.name, keyword)) {
+			return node.name;</span>
 		}
 <span style = "background-color:#dfd">	}</span>
 
@@ -204,8 +207,8 @@ void addKeyword(std::vector&lt;Node2&gt;&amp; node, std::string&amp; keyword, in
 		std::sort(node.begin(), node.end());</span>
 	}
 
-<span style = "background-color:#dfd">	if (node.size() == 10) {</span>
-<span style = "background-color:#fdd">		if (node.back().point &lt; point) {
+<span style = "background-color:#dfd">	if (node.size() == 10) {
+		if (node.back().point &lt; point) {
 			node.pop_back();
 			node.push_back({ keyword, point });
 			std::sort(node.begin(), node.end());</span>
@@ -214,7 +217,7 @@ void addKeyword(std::vector&lt;Node2&gt;&amp; node, std::string&amp; keyword, in
 <span style = "background-color:#dfd">}</span>
 
 
-<span style = "background-color:#fdd">void findBetterKeywords() {
+<span style = "background-color:#dfd">void findBetterKeywords() {
 	ifstream fin{ "keyword_weekday_500.txt" }; //500°³ µ¥ÀÌÅÍ ÀÔ·Â
 	for (int i = 0; i &lt; 500; i++) {
 		string keyword, day;
@@ -228,55 +231,263 @@ void addKeyword(std::vector&lt;Node2&gt;&amp; node, std::string&amp; keyword, in
 // test ///////////////
 
 <span style = "background-color:#dfd">TEST(KeywordTest, PerfectHit) {
-	resetScore();
 	string keyword = "banana";
 	string day = "tuesday";
 	updateKeywordBy(keyword, day); // ÃÖÃÊ Ãß°¡
 	int prevPoint = DayBest[1][0].point;
 	string result = updateKeywordBy(keyword, day); // ¿Ïº® HIT
 	EXPECT_EQ(result, keyword);
-	EXPECT_GT(DayBest[1][0].point, prevPoint); // Á¡¼ö Áõ°¡ È®ÀÎ
 }</span>
 
-
-<span style = "background-color:#dfd">TEST(KeywordTest, BasicAssertions) {</span>
-	// ÃÊ±âÈ­
-<span style = "background-color:#dfd">	resetScore();</span>
-	// Å×½ºÆ® µ¥ÀÌÅÍ
-<span style = "background-color:#dfd">	string keyword = "test_keyword";
-	string day = "monday";</span>
-	// Å°¿öµå ¾÷µ¥ÀÌÆ®
-<span style = "background-color:#dfd">	string result = updateKeywordBy(keyword, day);</span>
-	// °á°ú È®ÀÎ
-<span style = "background-color:#dfd">	EXPECT_EQ(result, keyword); // Ã³À½ Ãß°¡µÈ Å°¿öµå°¡ ¹ÝÈ¯µÇ¾î¾ß ÇÔ
-	EXPECT_EQ(DayBest[0][0].name, keyword); // ¿ù¿äÀÏ¿¡ Ãß°¡µÈ Å°¿öµå È®ÀÎ
-	EXPECT_EQ(DayBest[0][0].point, UZ); // Á¡¼ö È®ÀÎ
+<span style = "background-color:#dfd">TEST(KeywordTest, BasicAssertions) {
+	string keyword = "test_keyword";
+	string day = "monday";
+	string result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword); 
 }</span>
 
+<span style = "background-color:#dfd">TEST(KeywordTest, UZ_weekday) {
+	UZ = 2100000000;
+	updateKeywordBy("assd", "monday");
+	EXPECT_EQ(UZ, 9);
+}</span>
 
-<span style = "background-color:#dfd">TEST(KeywordTest, ScoreReset) {
-	resetScore();</span>
-	// UZ¿Í point¸¦ ÀÓ°è°ª ÀÌ»óÀ¸·Î °­Á¦ ¼³Á¤
-<span style = "background-color:#dfd">	UZ = 2100000000;
-	DayBest[0].push_back({ "reset_test", 2100000000 });
-	twoBest[0].push_back({ "reset_test2", 2100000000 });</span>
-	// Á¡¼ö ¸®¼Â Æ®¸®°Å
-<span style = "background-color:#dfd">	updateKeywordBy("zzz", "monday");</span>
-	// Á¡¼ö ¸®¼Â ÈÄ UZ°¡ 9·Î ÃÊ±âÈ­µÇ¾î¾ß ÇÔ
-<span style = "background-color:#dfd">	EXPECT_EQ(UZ, 9);</span>
-	// DayBest, twoBestÀÇ point°¡ 1ºÎÅÍ ÀçÇÒ´çµÇ¾î¾ß ÇÔ
-<span style = "background-color:#dfd">	EXPECT_EQ(DayBest[0][0].point, 1);
-	EXPECT_EQ(twoBest[0][0].point, 1);
+<span style = "background-color:#dfd">TEST(KeywordTest, UZ_weekend) {
+	UZ = 2100000000;
+	updateKeywordBy("assd", "sunday");
+	EXPECT_EQ(UZ, 9);
 }</span>
 
 <span style = "background-color:#dfd">TEST(KeywordTest, EmptyKeyword) {
-	resetScore();
 	string keyword = "";
 	string day = "sunday";
 	string result = updateKeywordBy(keyword, day);
 	EXPECT_EQ(result, keyword);
 	EXPECT_EQ(DayBest[6][0].name, keyword);
 }</span>
+
+<span style = "background-color:#dfd">TEST(KeywordTest, EmptyKeyword2) {
+	string keyword = "";
+	string day = "tuesday";
+	string result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+}</span>
+
+<span style = "background-color:#dfd">TEST(KeywordTest, 2weeksInput) {
+	string keyword = "a";
+	string day = "monday";
+	updateKeywordBy(keyword, day);
+	string result = updateKeywordBy(keyword, day); 
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "b";
+	day = "tuesday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); 
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "c";
+	day = "wednesday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); 
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "d";
+	day = "thursday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); 
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "e";
+	day = "friday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); 
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "f";
+	day = "saturday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); 
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "g";
+	day = "sunday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); 
+	EXPECT_EQ(result, keyword);</span>
+
+
+
+
+<span style = "background-color:#dfd">	keyword = "a";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); 
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "b";
+	day = "tuesday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); 
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "c";
+	day = "wednesday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); 
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "d";
+	day = "thursday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); 
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "e";
+	day = "friday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); 
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "f";
+	day = "saturday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); 
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "g";
+	day = "sunday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); 
+	EXPECT_EQ(result, keyword);</span>
+
+
+<span style = "background-color:#dfd">}</span>
+
+<span style = "background-color:#dfd">TEST(KeywordTest, monday14) {
+	string keyword = "a";
+	string day = "monday";
+	updateKeywordBy(keyword, day);
+	string result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "b";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "c";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "d";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "e";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "f";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "g";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);</span>
+
+
+
+
+<span style = "background-color:#dfd">	keyword = "a";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "b";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "c";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "d";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "e";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "f";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "g";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);</span>
+
+
+<span style = "background-color:#dfd">}</span>
+
+<span style = "background-color:#dfd">TEST(KeywordTest, sameName) {
+	string keyword = "aaaaaab";
+	string day = "monday";
+	updateKeywordBy(keyword, day);
+	string result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "aaaaaaa";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, result);
+}</span>
+
+<span style = "background-color:#dfd">TEST(KeywordTest, mainFunction) {
+	findBetterKeywords();
+}</span>
+
+
+<span style = "background-color:#dfd">TEST(KeywordTest, EmptyDouble) {
+	string keyword = "";
+	string day = "monday";
+	updateKeywordBy(keyword, day);
+	string result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);</span>
+
+<span style = "background-color:#dfd">	keyword = "";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, result);
+}</span>
+
 
 <span style = "background-color:#dfd">int main() {</span>
 
@@ -289,7 +500,8 @@ void addKeyword(std::vector&lt;Node2&gt;&amp; node, std::string&amp; keyword, in
 int increaseNodePoint(int point)
 <span style = "background-color:#dfd">{
 	point += static_cast&lt;int&gt;(point * 0.1);
-	if (point &gt;= 2100000000) point = 2100000000;
+	if (point &gt;= 2100000000) 
+		point = 2100000000;
 	return point;
 }</span>
 

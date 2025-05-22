@@ -1,5 +1,5 @@
-[2025-05-22 18:08:40] [info] Start Program:
-Path:".\\x64\\Debug\\"
+[2025-05-22 19:31:39] [info] Start Program:
+Path:".\\x64\\Debug\\Project1.exe"
 Arguments:
 Working directory: not set.
 Modules: Selected: * Excluded: 
@@ -14,7 +14,18 @@ Input coverage:
 Unified diff: 
 Excluded line regular expressions: 
 Substitute pdb source paths: 
-[2025-05-22 18:08:40] [error] Error: Cannot run process, check if it is a valid executable:
-Path:".\\x64\\Debug\\"
-Arguments:
-Working directory: not set.¾×¼¼½º°¡ °ÅºÎµÇ¾ú½À´Ï´Ù.
+[2025-05-22 19:31:39] [info] Module: C:\Users\User\source\repos\Project1\x64\Debug\Project1.exe is selected because it matches selected pattern: *
+[2025-05-22 19:31:39] [info] Module: C:\Windows\System32\ntdll.dll is selected because it matches selected pattern: *
+[2025-05-22 19:31:39] [info] Module: C:\Windows\System32\kernel32.dll is selected because it matches selected pattern: *
+[2025-05-22 19:31:39] [info] Module: C:\Windows\System32\KernelBase.dll is selected because it matches selected pattern: *
+[2025-05-22 19:31:39] [info] Module: C:\Windows\System32\vcruntime140d.dll is selected because it matches selected pattern: *
+[2025-05-22 19:31:39] [info] Module: C:\Windows\System32\vcruntime140_1d.dll is selected because it matches selected pattern: *
+[2025-05-22 19:31:39] [info] Module: C:\Windows\System32\ucrtbased.dll is selected because it matches selected pattern: *
+[2025-05-22 19:31:39] [info] Module: C:\Windows\System32\msvcp140d.dll is selected because it matches selected pattern: *
+[2025-05-22 19:31:40] [info] Module: C:\Windows\System32\kernel.appcore.dll is selected because it matches selected pattern: *
+[2025-05-22 19:31:40] [info] Module: C:\Windows\System32\msvcrt.dll is selected because it matches selected pattern: *
+[2025-05-22 19:31:40] [info] Module: C:\Windows\System32\rpcrt4.dll is selected because it matches selected pattern: *
+[2025-05-22 19:31:40] [info] ----------------------------------------------------
+[2025-05-22 19:31:40] [info] Coverage generated in Folder C:\Users\User\source\repos\Project1\coverage
+[2025-05-22 19:31:40] [info] ----------------------------------------------------
+[2025-05-22 19:31:40] [info] The code coverage report is not what you expect? See the FAQ https://github.com/OpenCppCoverage/OpenCppCoverage/wiki/FAQ.
