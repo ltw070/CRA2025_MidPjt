@@ -79,6 +79,8 @@ map<string, int> dayToIndex = {
 void resetScore();
 int increaseNodePoint(int point);
 
+void addKeyword(std::vector<Node2>& node, std::string& keyword, int point);
+
 string updateKeywordBy(string keyword, string day) {
 	UZ++;
 
@@ -133,33 +135,29 @@ string updateKeywordBy(string keyword, string day) {
 	}
 
 	//¿Ïº® HIT / Âû¶± HIT µÑ´Ù ¾Æ´Ñ°æ¿ì
-	if (DayBest[day_index].size() < 10) {
-		DayBest[day_index].push_back({ keyword, point });
-		std::sort(DayBest[day_index].begin(), DayBest[day_index].end());
-	}
+	auto &dayNode = DayBest[day_index];
+	addKeyword(dayNode, keyword, point);
 
-	if (twoBest[day_index].size() < 10) {
-		twoBest[day_index].push_back({ keyword, point });
-		std::sort(twoBest[day_index].begin(), twoBest[day_index].end());
-	}
-
-	if (DayBest[day_index].size() == 10) {
-		if (DayBest[day_index].back().point < point) {
-			DayBest[day_index].pop_back();
-			DayBest[day_index].push_back({ keyword, point });
-			std::sort(DayBest[day_index].begin(), DayBest[day_index].end());
-		}
-	}
-
-	if (twoBest[day_index].size() == 10) {
-		if (twoBest[day_index].back().point < point) {
-			twoBest[day_index].pop_back();
-			twoBest[day_index].push_back({ keyword, point });
-			std::sort(twoBest[day_index].begin(), twoBest[day_index].end());
-		}
-	}
+	auto& twoNode = twoBest[day_index];
+	addKeyword(twoNode, keyword, point);
 
 	return keyword;
+}
+
+void addKeyword(std::vector<Node2>& node, std::string& keyword, int point)
+{
+	if (node.size() < 10) {
+		node.push_back({ keyword, point });
+		std::sort(node.begin(), node.end());
+	}
+
+	if (node.size() == 10) {
+		if (node.back().point < point) {
+			node.pop_back();
+			node.push_back({ keyword, point });
+			std::sort(node.begin(), node.end());
+		}
+	}
 }
 
 void findBetterKeywords() {
