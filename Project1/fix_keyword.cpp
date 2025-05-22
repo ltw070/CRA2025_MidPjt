@@ -217,7 +217,6 @@ void findBetterKeywords() {
 // test ///////////////
 
 TEST(KeywordTest, PerfectHit) {
-	resetScore();
 	string keyword = "banana";
 	string day = "tuesday";
 	updateKeywordBy(keyword, day); // 최초 추가
@@ -227,10 +226,7 @@ TEST(KeywordTest, PerfectHit) {
 	EXPECT_GT(DayBest[1][0].point, prevPoint); // 점수 증가 확인
 }
 
-
 TEST(KeywordTest, BasicAssertions) {
-	// 초기화
-	resetScore();
 	// 테스트 데이터
 	string keyword = "test_keyword";
 	string day = "monday";
@@ -244,7 +240,6 @@ TEST(KeywordTest, BasicAssertions) {
 
 
 TEST(KeywordTest, ScoreReset) {
-	resetScore();
 	// UZ와 point를 임계값 이상으로 강제 설정
 	UZ = 2100000000;
 	DayBest[0].push_back({ "reset_test", 2100000000 });
@@ -259,12 +254,109 @@ TEST(KeywordTest, ScoreReset) {
 }
 
 TEST(KeywordTest, EmptyKeyword) {
-	resetScore();
 	string keyword = "";
 	string day = "sunday";
 	string result = updateKeywordBy(keyword, day);
 	EXPECT_EQ(result, keyword);
 	EXPECT_EQ(DayBest[6][0].name, keyword);
+}
+
+TEST(KeywordTest, EmptyKeyword2) {
+	string keyword = "";
+	string day = "sunday";
+	string result = updateKeywordBy(keyword, day);
+	EXPECT_EQ(result, keyword);
+}
+
+TEST(KeywordTest, PerfectHit2) {
+	string keyword = "a";
+	string day = "monday";
+	updateKeywordBy(keyword, day);
+	string result = updateKeywordBy(keyword, day); // 완벽 HIT
+	EXPECT_EQ(result, keyword);
+
+	keyword = "b";
+	day = "tuesday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	EXPECT_EQ(result, keyword);
+
+	keyword = "c";
+	day = "wednesday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	EXPECT_EQ(result, keyword);
+
+	keyword = "d";
+	day = "thursday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	EXPECT_EQ(result, keyword);
+
+	keyword = "e";
+	day = "friday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	EXPECT_EQ(result, keyword);
+
+	keyword = "f";
+	day = "saturday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	EXPECT_EQ(result, keyword);
+
+	keyword = "g";
+	day = "saturday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	EXPECT_EQ(result, keyword);
+
+
+
+
+	keyword = "a";
+	day = "monday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	EXPECT_EQ(result, keyword);
+
+	keyword = "b";
+	day = "tuesday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	EXPECT_EQ(result, keyword);
+
+	keyword = "c";
+	day = "wednesday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	EXPECT_EQ(result, keyword);
+
+	keyword = "d";
+	day = "thursday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	EXPECT_EQ(result, keyword);
+
+	keyword = "e";
+	day = "friday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	EXPECT_EQ(result, keyword);
+
+	keyword = "f";
+	day = "saturday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	EXPECT_EQ(result, keyword);
+
+	keyword = "g";
+	day = "saturday";
+	updateKeywordBy(keyword, day);
+	result = updateKeywordBy(keyword, day); // 완벽 HIT
+	EXPECT_EQ(result, keyword);
+
+
 }
 
 int main() {

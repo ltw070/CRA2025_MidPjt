@@ -29,37 +29,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "cal_test.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\cal_test.cpp",
-              "RelativeDocumentMoniker": "Project1\\cal_test.cpp",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\cal_test.cpp",
-              "RelativeToolTip": "Project1\\cal_test.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-22T08:12:00.151Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "gtest-all.cc",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Project1\\packages\\gmock.1.11.0\\lib\\native\\src\\gtest\\gtest-all.cc",
-              "RelativeDocumentMoniker": "packages\\gmock.1.11.0\\lib\\native\\src\\gtest\\gtest-all.cc",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\Project1\\packages\\gmock.1.11.0\\lib\\native\\src\\gtest\\gtest-all.cc",
-              "RelativeToolTip": "packages\\gmock.1.11.0\\lib\\native\\src\\gtest\\gtest-all.cc",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-22T08:07:06.909Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -71,8 +45,44 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xstring",
               "ViewState": "AgIAAKoJAAAAAAAAAAAmwL8JAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-05-22T06:53:39.533Z",
+              "WhenOpened": "2025-05-22T06:53:39.533Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "fix_keyword.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\fix_keyword.cpp",
+              "RelativeDocumentMoniker": "Project1\\fix_keyword.cpp",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\fix_keyword.cpp*",
+              "RelativeToolTip": "Project1\\fix_keyword.cpp*",
+              "ViewState": "AgIAAPkAAAAAAAAAAAAIwAsBAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-22T04:00:11.735Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "cal_test.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\cal_test.cpp",
+              "RelativeDocumentMoniker": "Project1\\cal_test.cpp",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\cal_test.cpp",
+              "RelativeToolTip": "Project1\\cal_test.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-22T08:12:00.151Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "gtest-all.cc",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Project1\\packages\\gmock.1.11.0\\lib\\native\\src\\gtest\\gtest-all.cc",
+              "RelativeDocumentMoniker": "packages\\gmock.1.11.0\\lib\\native\\src\\gtest\\gtest-all.cc",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Project1\\packages\\gmock.1.11.0\\lib\\native\\src\\gtest\\gtest-all.cc",
+              "RelativeToolTip": "packages\\gmock.1.11.0\\lib\\native\\src\\gtest\\gtest-all.cc",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-22T08:07:06.909Z"
             },
             {
               "$type": "Document",
@@ -84,21 +94,7 @@
               "RelativeToolTip": "Project1\\main.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-22T04:15:43.82Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "fix_keyword.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\fix_keyword.cpp",
-              "RelativeDocumentMoniker": "Project1\\fix_keyword.cpp",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\fix_keyword.cpp",
-              "RelativeToolTip": "Project1\\fix_keyword.cpp",
-              "ViewState": "AgIAAMIAAAAAAAAAAAAowNoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-22T04:00:11.735Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T04:15:43.82Z"
             }
           ]
         }
