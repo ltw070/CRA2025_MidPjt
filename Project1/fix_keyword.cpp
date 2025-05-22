@@ -5,6 +5,8 @@
 #include <map>
 #include <algorithm>
 
+#include "gmock/gmock.h"
+
 using namespace std;
 
 struct Node {
@@ -182,7 +184,18 @@ void input() {
 	}
 }
 
-//int main() {
-//	input();
-//
-//}
+int main() {
+
+#ifdef _DEBUG
+
+	::testing::InitGoogleMock();
+	return RUN_ALL_TESTS();
+
+#else
+
+	input();
+
+#endif
+}
+
+
