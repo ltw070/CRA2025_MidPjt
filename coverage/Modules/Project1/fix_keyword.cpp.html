@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>fix_keyword.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+    <body onload="prettyPrint()">
+        <h4></h4>
+        <pre class="prettyprint lang-cpp linenums">
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+struct Node {
+	string w;
+	string wk;
+};
+
+struct Node2 {
+	string name;
+	int point;
+
+<span style = "background-color:#fdd">	bool operator&lt;(const Node2&amp; other) const {
+		return point &lt; other.point;
+	}</span>
+};
+
+<span style = "background-color:#dfd">vector&lt;Node2&gt; weekBest[7]; //¿ù ~ ±Ý
+vector&lt;Node2&gt; twoBest[2]; //ÆòÀÏ, ÁÖ¸»</span>
+int UZ = 9;
+
+// ·¹º¥½´Å¸ÀÎ °Å¸® °è»ê ¾Ë°í¸®Áò (¹®ÀÚ¿­ À¯»çµµ °Ë»ç)
+<span style = "background-color:#fdd">int levenshtein(const std::string&amp; a, const std::string&amp; b) {
+	const size_t len_a = a.size();
+	const size_t len_b = b.size();</span>
+
+<span style = "background-color:#fdd">	std::vector&lt;std::vector&lt;int&gt;&gt; d(len_a + 1, std::vector&lt;int&gt;(len_b + 1));</span>
+
+<span style = "background-color:#fdd">	for (size_t i = 0; i &lt;= len_a; ++i) d[i][0] = i;
+	for (size_t j = 0; j &lt;= len_b; ++j) d[0][j] = j;</span>
+
+<span style = "background-color:#fdd">	for (size_t i = 1; i &lt;= len_a; ++i) {
+		for (size_t j = 1; j &lt;= len_b; ++j) {
+			if (a[i - 1] == b[j - 1])
+				d[i][j] = d[i - 1][j - 1];</span>
+			else
+<span style = "background-color:#fdd">				d[i][j] = 1 + std::min({ d[i - 1][j], d[i][j - 1], d[i - 1][j - 1] });
+		}
+	}
+	return d[len_a][len_b];
+}</span>
+
+// Á¡¼ö È¯»ê
+<span style = "background-color:#fdd">bool similer(const std::string&amp; a, const std::string&amp; b) {
+	if (a.empty() &amp;&amp; b.empty()) return 100;
+	if (a.empty() || b.empty()) return 1;</span>
+
+<span style = "background-color:#fdd">	int dist = levenshtein(a, b);
+	int max_len = std::max(a.length(), b.length());</span>
+	// À¯»çµµ ºñÀ² (1.0: ¿ÏÀüÈ÷ °°À½, 0.0: ÀüÇô ´Ù¸§)
+<span style = "background-color:#fdd">	double similarity = 1.0 - (double)dist / max_len;</span>
+
+<span style = "background-color:#fdd">	int score = 1 + static_cast&lt;int&gt;(similarity * 99);</span>
+
+<span style = "background-color:#fdd">	if (score &gt;= 80) return true;
+	return false;
+}</span>
+
+<span style = "background-color:#fdd">string input2(string w, string wk) {
+	UZ++;</span>
+
+<span style = "background-color:#fdd">	int index = 0;
+	if (wk == "monday") index = 0;
+	if (wk == "tuesday") index = 1;
+	if (wk == "wednesday") index = 2;
+	if (wk == "thursday") index = 3;
+	if (wk == "friday") index = 4;
+	if (wk == "saturday") index = 5;
+	if (wk == "sunday") index = 6;</span>
+
+	//ÆòÀÏ / ÁÖ¸»
+<span style = "background-color:#fdd">	int index2 = 0;
+	if (index &gt;= 0 &amp;&amp; index &lt;= 4) index2 = 0;
+	else index2 = 1;</span>
+
+<span style = "background-color:#fdd">	int point = UZ;</span>
+
+	//°ü¸® ¸ñ·Ï¿¡ Á¸ÀçÇÏ´ÂÁö È®ÀÎ
+	//°ü¸®µÇ´Â Å°¿öµåÀÌ¸é Á¡¼ö°¡ Áõ°¡
+
+<span style = "background-color:#fdd">	long long int max1 = 0;
+	long long int max2 = 0;</span>
+
+<span style = "background-color:#fdd">	int flag = 0;
+	for (Node2&amp; node : weekBest[index]) {
+		if (node.name == w) {
+			max1 = node.point + (node.point * 0.1);
+			node.point += (node.point * 0.1);
+			flag = 1;
+			break;</span>
+		}
+<span style = "background-color:#fdd">	}</span>
+
+<span style = "background-color:#fdd">	for (Node2&amp; node : twoBest[index2]) {
+		if (node.name == w) {
+			max2 = node.point + (node.point * 0.1);
+			node.point += (node.point * 0.1);
+			break;</span>
+		}
+<span style = "background-color:#fdd">	}</span>
+
+	//ÀçÁ¤·Ä ÀÛ¾÷
+<span style = "background-color:#fdd">	if (UZ &gt;= 2100000000 || max1 &gt;= 2100000000 || max2 &gt;= 2100000000) {
+		UZ = 9;
+		for (int i = 0; i &lt; 5; i++) {
+			int num = 1;
+			for (Node2&amp; node : weekBest[i]) {
+				node.point = num;
+				num++;
+			}
+		}
+		for (int i = 0; i &lt; 2; i++) {
+			int num = 1;
+			for (Node2&amp; node : twoBest[i]) {
+				node.point = num;
+				num++;
+			}
+		}</span>
+	}
+
+<span style = "background-color:#fdd">	if (flag == 1) {
+		return w;</span>
+	}
+
+
+	//Âû¶± HIT
+<span style = "background-color:#fdd">	for (Node2&amp; node : weekBest[index]) {
+		if (similer(node.name, w)) {
+			return node.name;</span>
+		}
+<span style = "background-color:#fdd">	}</span>
+
+<span style = "background-color:#fdd">	for (Node2&amp; node : twoBest[index]) {
+		if (similer(node.name, w)) {
+			return node.name;</span>
+		}
+<span style = "background-color:#fdd">	}</span>
+
+	//¿Ïº® HIT / Âû¶± HIT µÑ´Ù ¾Æ´Ñ°æ¿ì
+<span style = "background-color:#fdd">	if (weekBest[index].size() &lt; 10) {
+		weekBest[index].push_back({ w, point });
+		std::sort(weekBest[index].begin(), weekBest[index].end());</span>
+	}
+
+<span style = "background-color:#fdd">	if (twoBest[index].size() &lt; 10) {
+		twoBest[index].push_back({ w, point });
+		std::sort(twoBest[index].begin(), twoBest[index].end());</span>
+	}
+
+<span style = "background-color:#fdd">	if (weekBest[index].size() == 10) {
+		if (weekBest[index].back().point &lt; point) {
+			weekBest[index].pop_back();
+			weekBest[index].push_back({ w, point });
+			std::sort(weekBest[index].begin(), weekBest[index].end());</span>
+		}
+	}
+
+<span style = "background-color:#fdd">	if (twoBest[index].size() == 10) {
+		if (twoBest[index].back().point &lt; point) {
+			twoBest[index].pop_back();
+			twoBest[index].push_back({ w, point });
+			std::sort(twoBest[index].begin(), twoBest[index].end());</span>
+		}
+	}
+
+<span style = "background-color:#fdd">	return w;
+}</span>
+
+<span style = "background-color:#fdd">void input() {
+	ifstream fin{ "keyword_weekday_500.txt" }; //500°³ µ¥ÀÌÅÍ ÀÔ·Â
+	for (int i = 0; i &lt; 500; i++) {
+		string t1, t2;
+		fin &gt;&gt; t1 &gt;&gt; t2;
+		string ret = input2(t1, t2);
+		std::cout &lt;&lt; ret &lt;&lt; "\n";
+	}
+}</span>
+
+//int main() {
+//	input();
+//
+//}</pre>
+        <hr />
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th align="center">
+                        <small>Generated by</small>
+                        <a href="https://github.com/OpenCppCoverage/OpenCppCoverage/releases">
+                            <strong>OpenCppCoverage (Version: 0.9.9.0)</strong>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </body>
+</html>

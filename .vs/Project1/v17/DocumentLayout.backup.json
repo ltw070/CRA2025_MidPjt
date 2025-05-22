@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\Project1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|C:\\Users\\User\\source\\repos\\Project1\\Project1\\cal_test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|solutionrelative:Project1\\cal_test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|C:\\Users\\User\\source\\repos\\Project1\\Project1\\cal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|solutionrelative:Project1\\cal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|C:\\Users\\User\\source\\repos\\Project1\\Project1\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|solutionrelative:Project1\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|C:\\Users\\User\\source\\repos\\Project1\\Project1\\fix_keyword.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|solutionrelative:Project1\\fix_keyword.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|C:\\Users\\User\\source\\repos\\Project1\\Project1\\keyword_weekday_500.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{970AE101-AF1A-4547-9D93-BEA249EF635A}|Project1\\Project1.vcxproj|solutionrelative:Project1\\keyword_weekday_500.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "cal_test.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\cal_test.cpp",
+              "RelativeDocumentMoniker": "Project1\\cal_test.cpp",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\cal_test.cpp",
+              "RelativeToolTip": "Project1\\cal_test.cpp",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAgwBcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-22T01:21:52.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "cal.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\cal.cpp",
+              "RelativeDocumentMoniker": "Project1\\cal.cpp",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\cal.cpp",
+              "RelativeToolTip": "Project1\\cal.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-22T01:20:04.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\main.cpp",
+              "RelativeDocumentMoniker": "Project1\\main.cpp",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\main.cpp",
+              "RelativeToolTip": "Project1\\main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-22T01:17:48.885Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "keyword_weekday_500.txt",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\keyword_weekday_500.txt",
+              "RelativeDocumentMoniker": "Project1\\keyword_weekday_500.txt",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\keyword_weekday_500.txt",
+              "RelativeToolTip": "Project1\\keyword_weekday_500.txt",
+              "ViewState": "AgIAALgBAAAAAAAAAAAmwNIBAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-05-22T01:15:50.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "fix_keyword.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\fix_keyword.cpp",
+              "RelativeDocumentMoniker": "Project1\\fix_keyword.cpp",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Project1\\Project1\\fix_keyword.cpp",
+              "RelativeToolTip": "Project1\\fix_keyword.cpp",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAAALgAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-22T01:14:55.893Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
