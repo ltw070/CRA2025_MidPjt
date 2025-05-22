@@ -213,14 +213,25 @@ void findBetterKeywords() {
 }
 
 
-
-
+TEST(KeywordTest, BasicAssertions) {
+	// 초기화
+	resetScore();
+	// 테스트 데이터
+	string keyword = "test_keyword";
+	string day = "monday";
+	// 키워드 업데이트
+	string result = updateKeywordBy(keyword, day);
+	// 결과 확인
+	EXPECT_EQ(result, keyword); // 처음 추가된 키워드가 반환되어야 함
+	EXPECT_EQ(DayBest[0][0].name, keyword); // 월요일에 추가된 키워드 확인
+	EXPECT_EQ(DayBest[0][0].point, UZ); // 점수 확인
+}
 
 int main() {
 
-	findBetterKeywords();
-	//::testing::InitGoogleMock();
-	//return RUN_ALL_TESTS();
+	//findBetterKeywords();
+	::testing::InitGoogleMock();
+	return RUN_ALL_TESTS();
 }
 
 // 모듈화
